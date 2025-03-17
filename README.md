@@ -1,6 +1,6 @@
 # Ocean.io API Postman Collection
 
-This repository contains a ready-to-use Postman collection for the [Ocean.io API](https://ocean.io/), designed to simplify exploration and testing of the API's endpoints. Whether you're just getting started or looking for a reference setup, this collection provides a convenient, structured way to interact with Ocean.io’s endpoints.
+This repository contains a ready-to-use Postman collection for the [Ocean.io API](https://docs.ocean.io/), designed to simplify exploration and testing of the API's endpoints. Whether you're just getting started or looking for a reference setup, this collection provides a convenient, structured way to interact with Ocean.io’s endpoints.
 
 ## Features
 
@@ -21,17 +21,17 @@ This repository contains a ready-to-use Postman collection for the [Ocean.io API
 1. **Clone this repository**:
 
    ```bash
-   git clone https://github.com/your-username/oceanio-postman-collection.git
+   git clone https://github.com/davehague/ocean-io-postman-collection.git
    cd oceanio-postman-collection
    ```
 
 2. **Import Collection and Environment** into Postman:
 
    - Import `collection/Oceanio.postman_collection.json` into Postman.
-   - Copy and rename `environment/Oceanio.postman_environment.template.json` to `environment/Oceanio.postman_environment.json` and import into Postman
+   - Import `environment/Oceanio.postman_environment.template.json` into Postman.
 
 3. **Set API Token**:
-   - In Postman, select the `Oceanio` environment.
+   - In Postman, select the `OceanIO` environment.
    - Set the `OCEANIO_API_TOKEN` environment variable to your actual token.
 
 ### Usage
@@ -44,8 +44,7 @@ Once set up, you can:
 
 ## Notes & Customization
 
-- Several endpoints are configured to dynamically use the `{{OCEANIO_API_TOKEN}}` variable.
-- Any quirks or limitations discovered during testing are documented within request descriptions.
+- Endpoints are configured to dynamically use the `{{OCEANIO_API_TOKEN}}` variable.
 - You can further customize the environment or collection as needed.
 
 ## Folder Structure
