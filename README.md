@@ -2,6 +2,8 @@
 
 This repository contains a ready-to-use Postman collection for the [Ocean.io API](https://docs.ocean.io/), designed to simplify exploration and testing of the API's endpoints. Whether you're just getting started or looking for a reference setup, this collection provides a convenient, structured way to interact with Ocean.io’s endpoints.
 
+Generated via the Ocean.io [OpenAPI spec file](https://api.ocean.io/openapi.json), modified to use Postman environment variables
+
 ## Features
 
 - **Pre-configured Postman Collection** based on Ocean.io's official OpenAPI specification.
