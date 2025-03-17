@@ -22,7 +22,7 @@ This repository contains a ready-to-use Postman collection for the [Ocean.io API
 
    ```bash
    git clone https://github.com/davehague/ocean-io-postman-collection.git
-   cd oceanio-postman-collection
+   cd ocean-io-postman-collection
    ```
 
 2. **Import Collection and Environment** into Postman:
