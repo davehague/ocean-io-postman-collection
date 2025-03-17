@@ -1,0 +1,3187 @@
+{
+	"info": {
+		"_postman_id": "2958ecfc-45bf-42e6-ab8f-722cd1ebf0d1",
+		"name": "Ocean.io API Documentation",
+		"description": "\n            Welcome to Ocean.io's API.\n            The API can be used to access all our API endpoints, such as our enrich API to look up company information, or our discover API to identify companies based on specific search criteria such as semantic similarity, technologies or industries.\n            Ocean.io's APIs are a set of HTTPS endpoints that you can use to retrieve and integrate Ocean.io's data into your existing workflows.\n            All requests should be made through https and the request and response bodies should be formatted in JSON.\n        ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2432110"
+	},
+	"item": [
+		{
+			"name": "v2",
+			"item": [
+				{
+					"name": "search",
+					"item": [
+						{
+							"name": "Lookalike companies search",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/search/companies?apiToken={{OCEANIO_API_TOKEN}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"search",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "{{OCEANIO_API_TOKEN}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Search companies using filters"
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/companies?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"companies"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"companies\": [\n    {\n      \"company\": {\n        \"domain\": \"<string>\",\n        \"countries\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryCountry\": \"<string>\",\n        \"companySize\": \"<string>\",\n        \"industryCategories\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"industries\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ecommerce\": \"<boolean>\",\n        \"keywords\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"employeeCountOcean\": \"<integer>\",\n        \"employeeCountLinkedin\": \"<integer>\",\n        \"revenue\": \"<string>\",\n        \"yearFounded\": \"<integer>\",\n        \"description\": \"<string>\",\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"phones\": [\n          {\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"logo\": \"<string>\",\n        \"technologies\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"technologyCategories\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"mobileApps\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"link\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"link\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"webTraffic\": {\n          \"visits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pageViews\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pagesPerVisit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bounceRate\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"medias\": {\n          \"linkedin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"twitter\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"youtube\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"facebook\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"xing\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tiktok\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"instagram\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"<string>\",\n        \"legalName\": \"<string>\",\n        \"locations\": [\n          {\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"locality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streetAddress\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"regionCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"locality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streetAddress\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"regionCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"departmentSizes\": [\n          {\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"size\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"size\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"rootUrl\": \"<string>\",\n        \"faxes\": [\n          {\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"impressum\": {\n          \"company\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fax\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"vat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"people\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"score\": \"<number>\"\n    },\n    {\n      \"company\": {\n        \"domain\": \"<string>\",\n        \"countries\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryCountry\": \"<string>\",\n        \"companySize\": \"<string>\",\n        \"industryCategories\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"industries\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ecommerce\": \"<boolean>\",\n        \"keywords\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"employeeCountOcean\": \"<integer>\",\n        \"employeeCountLinkedin\": \"<integer>\",\n        \"revenue\": \"<string>\",\n        \"yearFounded\": \"<integer>\",\n        \"description\": \"<string>\",\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"phones\": [\n          {\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"logo\": \"<string>\",\n        \"technologies\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"technologyCategories\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"mobileApps\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"link\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"link\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"webTraffic\": {\n          \"visits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pageViews\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pagesPerVisit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bounceRate\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"medias\": {\n          \"linkedin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"twitter\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"youtube\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"facebook\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"xing\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tiktok\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"instagram\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"<string>\",\n        \"legalName\": \"<string>\",\n        \"locations\": [\n          {\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"locality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streetAddress\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"regionCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"locality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streetAddress\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"regionCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"departmentSizes\": [\n          {\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"size\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"size\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"rootUrl\": \"<string>\",\n        \"faxes\": [\n          {\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primary\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"impressum\": {\n          \"company\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fax\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"vat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"people\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"score\": \"<number>\"\n    }\n  ],\n  \"detail\": \"<string>\",\n  \"searchAfter\": \"<string>\",\n  \"total\": \"<integer>\",\n  \"missingDomains\": {\n    \"labore_a\": \"<string>\"\n  }\n}"
+								},
+								{
+									"name": "Payment Required",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/companies?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"companies"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Payment Required",
+									"code": 402,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/companies?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"companies"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/companies?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"companies"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Validation Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/companies?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"companies"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Search people",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"onePersonPerDomain\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/search/people?apiToken={{OCEANIO_API_TOKEN}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"search",
+										"people"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "{{OCEANIO_API_TOKEN}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Search people using filters and/or people Ids \n\n    **Cost calculation:**\n    - Request that contains one or more lookalike company domains - 3 credits per person in result\n    - Request that does not contain any lookalike company domains - 1 credit per person in result"
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"onePersonPerDomain\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/people?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"people"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"people\": [\n    {\n      \"id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\",\n      \"location\": \"<string>\",\n      \"linkedinUrl\": \"<string>\",\n      \"seniorities\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"departments\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"photo\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"jobTitleEnglish\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"phone\": {\n        \"numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"status\": \"<string>\"\n      },\n      \"email\": {\n        \"address\": \"<string>\",\n        \"status\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\",\n      \"location\": \"<string>\",\n      \"linkedinUrl\": \"<string>\",\n      \"seniorities\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"departments\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"photo\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"jobTitleEnglish\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"phone\": {\n        \"numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"status\": \"<string>\"\n      },\n      \"email\": {\n        \"address\": \"<string>\",\n        \"status\": \"<string>\"\n      }\n    }\n  ],\n  \"detail\": \"<string>\",\n  \"searchAfter\": \"<string>\",\n  \"total\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Payment Required",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"onePersonPerDomain\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/people?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"people"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Payment Required",
+									"code": 402,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"onePersonPerDomain\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/people?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"people"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"onePersonPerDomain\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/people?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"people"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Validation Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"size\": 50,\n  \"from\": 1,\n  \"searchAfter\": \"<string>\",\n  \"peopleFilters\": {\n    \"includeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeJobTitles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"departments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minScore\": \"<number>\",\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ecommerce\": \"<boolean>\",\n    \"socialMedias\": {\n      \"medias\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"yearFounded\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countriesCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"revenues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"employeeCountOcean\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"webTrafficVisits\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"mobileApps\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"headquarterGeolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"geolocation\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"radius\": \"<integer>\"\n    },\n    \"locationsCount\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"departmentSizes\": [\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      },\n      {\n        \"department\": \"<string>\",\n        \"from\": \"<integer>\",\n        \"to\": \"<integer>\"\n      }\n    ],\n    \"keywords\": {\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"primaryStates\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ],\n    \"employeeCountLinkedin\": {\n      \"from\": \"<integer>\",\n      \"to\": \"<integer>\"\n    },\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industryCategories\": {\n      \"industryCategories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeIndustryCategories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": {\n      \"technologies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"fieldsExist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fieldsNotExist\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"onePersonPerDomain\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/search/people?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"search",
+												"people"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "enrich",
+					"item": [
+						{
+							"name": "Enrich company",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"people\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/enrich/company?apiToken={{OCEANIO_API_TOKEN}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"enrich",
+										"company"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "{{OCEANIO_API_TOKEN}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Match a company with our database and enrich it with additional information.\n\n**Cost calculation:**\n- request contains company domain - 1 credit\n- request does not contain company domain - 5 credits"
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"people\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/company?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"company"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"domain\": \"<string>\",\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"primaryCountry\": \"<string>\",\n  \"companySize\": \"<string>\",\n  \"industryCategories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"industries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ecommerce\": \"<boolean>\",\n  \"keywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employeeCountOcean\": \"<integer>\",\n  \"employeeCountLinkedin\": \"<integer>\",\n  \"revenue\": \"<string>\",\n  \"yearFounded\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"phones\": [\n    {\n      \"number\": \"<string>\",\n      \"country\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"number\": \"<string>\",\n      \"country\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"logo\": \"<string>\",\n  \"technologies\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"technologyCategories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobileApps\": [\n    {\n      \"name\": \"<string>\",\n      \"link\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"link\": \"<string>\"\n    }\n  ],\n  \"webTraffic\": {\n    \"visits\": \"<integer>\",\n    \"pageViews\": \"<integer>\",\n    \"pagesPerVisit\": \"<number>\",\n    \"bounceRate\": \"<number>\"\n  },\n  \"medias\": {\n    \"linkedin\": {\n      \"url\": \"<string>\",\n      \"handle\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"twitter\": {\n      \"url\": \"<string>\",\n      \"handle\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"youtube\": {\n      \"url\": \"<string>\",\n      \"handle\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"facebook\": {\n      \"url\": \"<string>\",\n      \"handle\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"xing\": {\n      \"url\": \"<string>\",\n      \"handle\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"tiktok\": {\n      \"url\": \"<string>\",\n      \"handle\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"instagram\": {\n      \"url\": \"<string>\",\n      \"handle\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"legalName\": \"<string>\",\n  \"locations\": [\n    {\n      \"primary\": false,\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"state\": \"<string>\",\n      \"regionCode\": \"<string>\"\n    },\n    {\n      \"primary\": false,\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\",\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"state\": \"<string>\",\n      \"regionCode\": \"<string>\"\n    }\n  ],\n  \"departmentSizes\": [\n    {\n      \"department\": \"<string>\",\n      \"size\": \"<integer>\"\n    },\n    {\n      \"department\": \"<string>\",\n      \"size\": \"<integer>\"\n    }\n  ],\n  \"rootUrl\": \"<string>\",\n  \"faxes\": [\n    {\n      \"number\": \"<string>\",\n      \"country\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"number\": \"<string>\",\n      \"country\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"impressum\": {\n    \"company\": \"<string>\",\n    \"address\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"fax\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"url\": \"<string>\",\n    \"people\": [\n      {\n        \"name\": \"<string>\",\n        \"position\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"position\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"people\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/company?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"company"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Payment Required",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"people\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/company?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"company"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Payment Required",
+									"code": 402,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"people\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/company?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"company"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"people\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/company?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"company"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Validation Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"people\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"facebook\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/company?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"company"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Enrich person",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"person\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"jobTitle\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/enrich/person?apiToken={{OCEANIO_API_TOKEN}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"enrich",
+										"person"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "{{OCEANIO_API_TOKEN}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Match a person with our database and enrich it with additional information.\n\n**Cost: 3 credits**"
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"person\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"jobTitle\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/person?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"person"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"name\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"country\": \"<string>\",\n  \"state\": \"<string>\",\n  \"location\": \"<string>\",\n  \"linkedinUrl\": \"<string>\",\n  \"seniorities\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"departments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"photo\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"jobTitleEnglish\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"phone\": {\n    \"numbers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"status\": \"<string>\"\n  },\n  \"email\": {\n    \"address\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"person\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"jobTitle\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/person?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"person"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Payment Required",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"person\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"jobTitle\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/person?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"person"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Payment Required",
+									"code": 402,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"person\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"jobTitle\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/person?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"person"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"person\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"jobTitle\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/person?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"person"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Validation Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"person\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"jobTitle\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"company\": {\n    \"name\": \"<string>\",\n    \"registrationNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"city\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"address\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"xing\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"revealEmails\": {\n    \"includeEmails\": false,\n    \"webhookUrl\": \"<string>\"\n  },\n  \"revealPhones\": {\n    \"includePhones\": false,\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/enrich/person?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"enrich",
+												"person"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "reveal",
+					"item": [
+						{
+							"name": "Reveal emails",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/reveal/emails?apiToken={{OCEANIO_API_TOKEN}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"reveal",
+										"emails"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "{{OCEANIO_API_TOKEN}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Get emails and email statuses for people."
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/emails?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"emails"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\"\n}"
+								},
+								{
+									"name": "Payment Required",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/emails?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"emails"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Payment Required",
+									"code": 402,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/emails?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"emails"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/emails?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"emails"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Validation Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/emails?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"emails"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Reveal phones",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/reveal/phones?apiToken={{OCEANIO_API_TOKEN}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"reveal",
+										"phones"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "{{OCEANIO_API_TOKEN}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Get phones and phone statuses for people."
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/phones?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"phones"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\"\n}"
+								},
+								{
+									"name": "Payment Required",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/phones?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"phones"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Payment Required",
+									"code": 402,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/phones?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"phones"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": \"<string>\"\n}"
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/phones?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"phones"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Validation Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"personIds\": [\n    \"<string>\"\n  ],\n  \"webhookUrl\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/reveal/phones?apiToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"reveal",
+												"phones"
+											],
+											"query": [
+												{
+													"key": "apiToken",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get auto completion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"countryFilters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v2/autocomplete/companies?apiToken={{OCEANIO_API_TOKEN}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v2",
+								"autocomplete",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "apiToken",
+									"value": "{{OCEANIO_API_TOKEN}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Auto complete the name search"
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"countryFilters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/autocomplete/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"autocomplete",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"companies\": [\n    {\n      \"domain\": \"<string>\",\n      \"logo\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"domain\": \"<string>\",\n      \"logo\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Payment Required",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"countryFilters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/autocomplete/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"autocomplete",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Payment Required",
+							"code": 402,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": \"<string>\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"countryFilters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/autocomplete/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"autocomplete",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"countryFilters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/autocomplete/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"autocomplete",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"countryFilters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/autocomplete/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"autocomplete",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get list of available industries, technologies and regions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v2/data-fields?apiToken={{OCEANIO_API_TOKEN}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v2",
+								"data-fields"
+							],
+							"query": [
+								{
+									"key": "apiToken",
+									"value": "{{OCEANIO_API_TOKEN}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Provides a list of all industries and industry categories, technologies and regions searchable by Ocean.io."
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/data-fields?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"data-fields"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"industries\": [\n    {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"industryCategory\": \"<string>\"\n    },\n    {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"industryCategory\": \"<string>\"\n    }\n  ],\n  \"technologies\": [\n    {\n      \"name\": \"<string>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"regions\": {\n    \"cupidatat6d\": [\n      {\n        \"code\": \"<string>\",\n        \"englishName\": \"<string>\",\n        \"localName\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"englishName\": \"<string>\",\n        \"localName\": \"<string>\"\n      }\n    ],\n    \"consequat_a21\": [\n      {\n        \"code\": \"<string>\",\n        \"englishName\": \"<string>\",\n        \"localName\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"englishName\": \"<string>\",\n        \"localName\": \"<string>\"\n      }\n    ],\n    \"cupidatatb0\": [\n      {\n        \"code\": \"<string>\",\n        \"englishName\": \"<string>\",\n        \"localName\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"englishName\": \"<string>\",\n        \"localName\": \"<string>\"\n      }\n    ],\n    \"sunt_4e\": [\n      {\n        \"code\": \"<string>\",\n        \"englishName\": \"<string>\",\n        \"localName\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"englishName\": \"<string>\",\n        \"localName\": \"<string>\"\n      }\n    ]\n  },\n  \"seniorities\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"departments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						},
+						{
+							"name": "Payment Required",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/data-fields?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"data-fields"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Payment Required",
+							"code": 402,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": \"<string>\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/data-fields?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"data-fields"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v2/data-fields?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"data-fields"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/data-fields?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"data-fields"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get credit balance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v2/credits/balance?apiToken={{OCEANIO_API_TOKEN}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v2",
+								"credits",
+								"balance"
+							],
+							"query": [
+								{
+									"key": "apiToken",
+									"value": "{{OCEANIO_API_TOKEN}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Get credit balance"
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/credits/balance?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"credits",
+										"balance"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"credits\": {\n    \"oneTime\": 0,\n    \"recurrent\": 0\n  },\n  \"emailCredits\": {\n    \"oneTime\": 0,\n    \"recurrent\": 0\n  },\n  \"phoneCredits\": {\n    \"oneTime\": 0,\n    \"recurrent\": 0\n  },\n  \"dailyLimitRateLeft\": 0,\n  \"dailyLimitRateSecondsToReset\": 0\n}"
+						},
+						{
+							"name": "Payment Required",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/credits/balance?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"credits",
+										"balance"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Payment Required",
+							"code": 402,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": \"<string>\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/credits/balance?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"credits",
+										"balance"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v2/credits/balance?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"credits",
+										"balance"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/credits/balance?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"credits",
+										"balance"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Warmup companies",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"domains\": [\n    \"<string>\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v2/warmup/companies?apiToken={{OCEANIO_API_TOKEN}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v2",
+								"warmup",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "apiToken",
+									"value": "{{OCEANIO_API_TOKEN}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Check available companies in Ocean's database and trigger process of data gathering for the missing ones"
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"domains\": [\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/warmup/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"warmup",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"successfulDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"triggeredDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ignoredDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"missingDomains\": {\n    \"dob1\": \"<string>\"\n  },\n  \"dataErrors\": {\n    \"voluptate4a\": \"<string>\",\n    \"ut42\": \"<string>\"\n  }\n}"
+						},
+						{
+							"name": "Payment Required",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"domains\": [\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/warmup/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"warmup",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Payment Required",
+							"code": 402,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": \"<string>\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"domains\": [\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/warmup/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"warmup",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"domains\": [\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/warmup/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"warmup",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"domains\": [\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v2/warmup/companies?apiToken=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"warmup",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "apiToken",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Lookalike people search (RC)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"size\": 50,\n  \"peopleFilters\": {\n    \"lookalikePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lookalikeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitleKeywords\": {\n      \"allOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"anyOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"noneOf\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"regions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peoplePerCompany\": \"<integer>\",\n  \"jobTitleThreshold\": \"<number>\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/v3/search/people?apiToken={{OCEANIO_API_TOKEN}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v3",
+						"search",
+						"people"
+					],
+					"query": [
+						{
+							"key": "apiToken",
+							"value": "{{OCEANIO_API_TOKEN}}",
+							"description": "(Required) "
+						}
+					]
+				},
+				"description": "Search people using filters and/or people Ids \n\n    **Cost calculation:**\n    - Request that contains one or more lookalike people or one or more lookalike companies - 3 credits per person in result\n    - Request that does not contain lookalike people and does not include lookalike companies - 1 credit per person in result"
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"size\": 50,\n  \"peopleFilters\": {\n    \"lookalikePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lookalikeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitleKeywords\": {\n      \"allOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"anyOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"noneOf\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"regions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peoplePerCompany\": \"<integer>\",\n  \"jobTitleThreshold\": \"<number>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v3/search/people?apiToken=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v3",
+								"search",
+								"people"
+							],
+							"query": [
+								{
+									"key": "apiToken",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"people\": [\n    {\n      \"id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"company\": {\n        \"companySize\": \"<string>\",\n        \"logo\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\",\n      \"location\": \"<string>\",\n      \"linkedinUrl\": \"<string>\",\n      \"seniorities\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"departments\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"photo\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"jobTitleEnglish\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"phone\": {\n        \"numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"status\": \"<string>\"\n      },\n      \"email\": {\n        \"address\": \"<string>\",\n        \"status\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"company\": {\n        \"companySize\": \"<string>\",\n        \"logo\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\",\n      \"location\": \"<string>\",\n      \"linkedinUrl\": \"<string>\",\n      \"seniorities\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"departments\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"photo\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"jobTitleEnglish\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"phone\": {\n        \"numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"status\": \"<string>\"\n      },\n      \"email\": {\n        \"address\": \"<string>\",\n        \"status\": \"<string>\"\n      }\n    }\n  ],\n  \"detail\": \"<string>\",\n  \"total\": \"<integer>\"\n}"
+				},
+				{
+					"name": "Payment Required",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"size\": 50,\n  \"peopleFilters\": {\n    \"lookalikePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lookalikeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitleKeywords\": {\n      \"allOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"anyOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"noneOf\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"regions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peoplePerCompany\": \"<integer>\",\n  \"jobTitleThreshold\": \"<number>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v3/search/people?apiToken=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v3",
+								"search",
+								"people"
+							],
+							"query": [
+								{
+									"key": "apiToken",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Payment Required",
+					"code": 402,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"detail\": \"<string>\"\n}"
+				},
+				{
+					"name": "Forbidden",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"size\": 50,\n  \"peopleFilters\": {\n    \"lookalikePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lookalikeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitleKeywords\": {\n      \"allOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"anyOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"noneOf\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"regions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peoplePerCompany\": \"<integer>\",\n  \"jobTitleThreshold\": \"<number>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v3/search/people?apiToken=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v3",
+								"search",
+								"people"
+							],
+							"query": [
+								{
+									"key": "apiToken",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"detail\": \"<string>\"\n}"
+				},
+				{
+					"name": "Not found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"size\": 50,\n  \"peopleFilters\": {\n    \"lookalikePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lookalikeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitleKeywords\": {\n      \"allOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"anyOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"noneOf\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"regions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peoplePerCompany\": \"<integer>\",\n  \"jobTitleThreshold\": \"<number>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v3/search/people?apiToken=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v3",
+								"search",
+								"people"
+							],
+							"query": [
+								{
+									"key": "apiToken",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Validation Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"size\": 50,\n  \"peopleFilters\": {\n    \"lookalikePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lookalikeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"countries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludePeopleIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludeLinkedinHandles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"seniorities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"jobTitleKeywords\": {\n      \"allOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"anyOf\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"noneOf\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"regions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"states\": [\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"abbreviation\": \"<string>\"\n      }\n    ]\n  },\n  \"companiesFilters\": {\n    \"lookalikeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"includeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"industries\": {\n      \"industries\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mode\": \"anyOf\"\n    },\n    \"excludeDomains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCountries\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"companySizes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"peoplePerCompany\": \"<integer>\",\n  \"jobTitleThreshold\": \"<number>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v3/search/people?apiToken=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v3",
+								"search",
+								"people"
+							],
+							"query": [
+								{
+									"key": "apiToken",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.ocean.io",
+			"type": "string"
+		}
+	]
+}

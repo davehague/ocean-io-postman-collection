@@ -1,0 +1,6 @@
+# Ignore sensitive files and system artifacts
+.env
+*.postman_globals.json
+*.postman_environment.json
+*.DS_Store
+node_modules/
